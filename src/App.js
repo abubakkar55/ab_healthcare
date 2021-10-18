@@ -2,7 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import CommonFirebaseProvider from './context/CommonFirebaseProvider';
-import Services from './Pages/Services';
+import Services from './components/Services/Services';
 import Home from './Pages/Home';
 import Shop from './Pages/Shop';
 import ProductDetails from './Pages/ProductDetails';

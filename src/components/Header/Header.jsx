@@ -39,7 +39,7 @@ const Header = () => {
 
                         <div className="flex items-center font-semibold">
                             <NavLink to="/login" className="mr-4"> Login </NavLink>
-                            <button className="px-7 py-2 bg-green-500 text-white rounded-full hover:bg-green-600">
+                            <button className="px-7 py-2 bg-green-400 font-semibold  text-white rounded-full hover:bg-green-500">
                                 <NavLink to="/signup"> Sign up </NavLink>
                             </button>
                         </div>

@@ -2,9 +2,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
- html{
-   overflow-x: hidden;
- }
+
+html {
+  overflow-x: hidden;
+}
 
 body {
   margin: 0;
@@ -15,4 +16,10 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.my-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 1rem;
 }

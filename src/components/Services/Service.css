@@ -1,0 +1,12 @@
+.service-item, .service-btn{
+    transition: all  0.5s ease-in-out;
+}
+
+.service-item:hover {
+    transform: translateY(-.7rem);
+}    
+
+.service-item:hover .service-btn{
+background-color: #34D399;
+color: #fff;
+}

@@ -22,7 +22,7 @@ const Slider = () => {
                                         </NavLink>
                                     </button>
                                 </div>
-                                <div className="w-2/5 px-10">
+                                <div className="w-2/5 p-10">
                                     <img className="slider-img rounded-lg" src={img} alt="" />
                                 </div>
                             </div>
