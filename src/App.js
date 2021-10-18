@@ -19,17 +19,27 @@ function App() {
         <Router>
           <Header />
           <Switch>
-            <Route exact path="/" component={Home}> </Route>
-            <Route path="/services" component={Services}> </Route>
-            <Route path="/shop" component={Shop}> </Route>
-            <Route path="/doctors" component={Doctors}> </Route>
+            <Route exact path="/">
+            <Home/>
+             </Route>
+            <Route path="/services">
+            <Services/>
+             </Route>
+            <Route path="/shop">
+            <Shop/>
+             </Route>
+            <Route path="/doctors">
+            <Doctors/>
+             </Route>
             <Route path="/productDetails/:pdId">
               <ProductDetails />
             </Route>
             <Route path="/serviceDetails/:id">
               <ServicesDetails />
             </Route>
-            <Route path="*" component={NotFound}> </Route>
+            <Route path="*">
+            <NotFound/>
+             </Route>
           </Switch>
           <Footer />
         </Router>

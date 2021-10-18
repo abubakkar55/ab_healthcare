@@ -1,9 +1,9 @@
-const sliderData =[
+const sliderData = [
     {
         id: 1,
         name: "Get The highest doctors treatments from ABHealthCare",
         img: "https://images.unsplash.com/photo-1551601651-2a8555f1a136?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=547&q=80",
-        des: "",
+        des: "get an appointment from our higher degree & educated doctor accoeding to your disease, you can tell your problem properly without any hesitation",
         btn: "Book An Appointment"
     },
     {
@@ -15,9 +15,10 @@ const sliderData =[
     },
     {
         id: 3,
-        name: "Get your daily haealt care accessories & Medicine from our shop",
+        name: "Get your daily haealt care accessories & Medicine",
         img: "https://images.unsplash.com/photo-1547489432-cf93fa6c71ee?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=870&q=80",
+        des:"we have all countries medicine & important injection, also we have covid-19 vaccine",
         btn: "shop Now"
     },
-
-]
+];
+export default sliderData;
