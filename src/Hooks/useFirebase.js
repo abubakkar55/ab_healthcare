@@ -2,34 +2,20 @@ import { useEffect, useState } from 'react';
 import { useForm } from "react-hook-form";
 import { getAuth, signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged, createUserWithEmailAndPassword, updateProfile, signInWithEmailAndPassword } from "firebase/auth";
 import initFirebase from './../firebase/firebase.init';
-import { useHistory } from 'react-router';
 
 const useFirebase = () => {
 
     initFirebase();
 
-    // react hook form info
-    const [registerFormData, setregisterFormData] = useState({});
-    const [logInFormData, setLogInFormData] = useState({});
-    const { register, handleSubmit, formState: { errors }, trigger, reset } = useForm();
-    const history = useHistory();
-
     // firebase info
     const [user, setUser] = useState({});
     const [error, setError] = useState("");
+    const [name, setName] = useState("");
+    const [password, setPassword] = useState("");
+    const [email, setEmail] = useState("");
+    const [photo, setPhoto] = useState("");
+ console.log(name, email, password);
 
-    // this function will get  register user data
-    const onSubmit = (data) => {
-        setregisterFormData(data);
-    }
-    const logInData = (data) => {
-        setregisterFormData(data);
-    }
-
-    // destructure user form data
-    const { name, email, password, imgUrl } = registerFormData || {};
-    const { logInEmail, logInPassword } = logInFormData || {};
-    console.log(registerFormData);
     const auth = getAuth();
 
     //sign in google
@@ -47,7 +33,7 @@ const useFirebase = () => {
     const updateUserProfile = () => {
         updateProfile(auth.currentUser, {
             displayName: name,
-            photoURL: imgUrl
+            photoURL: photo
         })
             .then(() => {
             }).catch((error) => {
@@ -59,22 +45,19 @@ const useFirebase = () => {
     const registerUser = () => {
         createUserWithEmailAndPassword(auth, email, password)
             .then((result) => {
-                setUser(result.user);
                 updateUserProfile();
-                logOut();
-                reset();
+                setUser(result.user);
             }).catch((error) => {
                 setError(error.message);
             });
-            history.push("/login");
     }
 
     //login 
     const logIn = () => {
-        signInWithEmailAndPassword(auth, logInEmail, logInPassword)
+        signInWithEmailAndPassword(auth, email, password)
             .then((result) => {
                 setUser(result.user);
-                reset();
+            
             }).catch((error) => {
                 setError(error.message);
             });
@@ -102,10 +85,8 @@ const useFirebase = () => {
     }, [])
 
     return {
-        handleSubmit, onSubmit, errors,
-        register, registerFormData,
-        trigger, googleSignIn, user, setUser, error,
-        logOut, registerUser, logIn, logInData
+     setName, setError, error, setPassword, setEmail, logIn, logOut, registerUser, googleSignIn, setPhoto, user
+
     }
 }
 

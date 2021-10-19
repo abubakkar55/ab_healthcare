@@ -52,7 +52,6 @@ const Header = () => {
                                     <button onClick={logOut}> <MdLogout className="h-7 w-7" /> </button>
                                 </div>
                         }
-
                     </div>
                 </div>
             </div>
