@@ -1,11 +1,13 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import useCommonFirebase from '../../Hooks/useCommonFirebase';
+import { FcGoogle } from "react-icons/fc";
 const Signup = () => {
-    const { firebaseContext: { handleSubmit, onSubmit, errors, register, trigger } } = useCommonFirebase();
+    
+    const { firebaseContext: { handleSubmit, onSubmit, errors, register, trigger, googleSignIn, registerUser } } = useCommonFirebase();
     return (
         <div className="flex items-center justify-center my-20 mx-6">
-            <div className="bg-white  rounded-md overflow-hidden shadow-xl">
+            <div className="bg-white  rounded-md overflow-hidden shadow-md">
                 <h3 className="text-center text-yellow-500 text-2xl mt-8 font-bold">SIGN UP </h3>
                 <div>
                     <div className="p-8">
@@ -25,9 +27,9 @@ const Signup = () => {
                                 })}
                                 onKeyPress={() => trigger("name")}
                                 className={`border-2 ${errors.name && "border-red-400"} rounded-full block w-full px-4 py-3  outline-none`}
-                                type="text" placeholder="Your Name" 
+                                type="text" placeholder="Your Name"
 
-                                />
+                            />
                             {
                                 errors.name && (<small className="text-red-500">{errors.name.message} </small>)
                             }
@@ -68,10 +70,15 @@ const Signup = () => {
                                 <label htmlFor="terms">Accepts The <span className="text-blue-500">Terms & Condition </span> </label>
                             </div>
 
-                            <button type="submit" className="px-8 mr-2 py-2 rounded-3xl bg-blue-500 hover:bg-blue-600  text-white shadow-lg">Sing Up </button>
+                            <button onClick={registerUser} type="submit" className="px-8 mr-2 py-2 rounded-3xl bg-blue-500 hover:bg-blue-600  text-white shadow-lg">Sing Up </button>
                             <p className="inline-block pb-2">Already have an account?<NavLink to="/login" className="text-blue-500 cursor-pointer">Login </NavLink> </p>
-
                         </form>
+                        
+                        {/*  google sign in */}
+                        <div className="text-center pt-3">
+                            <h4 className="text-lg font-semibold mb-2">sign up with </h4>
+                            <button onClick={googleSignIn}> <FcGoogle className="text-xl" />   </button>
+                        </div>
                     </div>
 
                 </div>

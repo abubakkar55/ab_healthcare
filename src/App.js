@@ -21,19 +21,18 @@ function App() {
         <Router>
           <Header />
           <Switch>
-            
             <Route exact path="/">
               <Home />
             </Route>
-            
+
             <Route path="/services">
               <Services />
             </Route>
-            
+
             <Route path="/shop">
               <Shop />
             </Route>
-            
+
             <Route path="/doctors">
               <Doctors />
             </Route>
@@ -41,7 +40,7 @@ function App() {
             <Route path="/signup">
               <Signup />
             </Route>
-            
+
             <Route path="/login">
               <Login />
             </Route>
@@ -49,15 +48,14 @@ function App() {
             <Route path="/productDetails/:pdId">
               <ProductDetails />
             </Route>
-            
+
             <Route path="/serviceDetails/:serviceId">
               <ServicesDetails />
             </Route>
-            
+
             <Route path="*">
               <NotFound />
             </Route>
-          
           </Switch>
           <Footer />
         </Router>

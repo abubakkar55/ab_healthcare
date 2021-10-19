@@ -4,7 +4,7 @@ import useCommonFirebase from '../../Hooks/useCommonFirebase';
 import { MdHealthAndSafety, MdShoppingCart, MdLogout } from "react-icons/md";
 
 const Header = () => {
-    const { commonContext: { data }, firebaseContext: { user } } = useCommonFirebase();
+    const { firebaseContext: { user, logOut } } = useCommonFirebase();
     return (
         <div className="">
             <div className="flex items-center justify-between px-20 h-20 shadow-md">
@@ -47,15 +47,13 @@ const Header = () => {
                                 <div className="flex items-center font-semibold">
                                     <span className="mr-4"> {user?.displayName} </span>
                                     <img
-                                        className="w-10 rounded-full shadow-lg mr-4"
+                                        className="w-10 h-10 rounded-full shadow-lg mr-4"
                                         src={user?.photoURL} alt="" />
-                                    <NavLink to="/logout"> <MdLogout className="h-7 w-7" /> </NavLink>
+                                    <button onClick={logOut}> <MdLogout className="h-7 w-7" /> </button>
                                 </div>
                         }
 
                     </div>
-
-
                 </div>
             </div>
         </div>
