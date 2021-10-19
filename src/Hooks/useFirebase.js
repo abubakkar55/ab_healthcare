@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { useForm } from "react-hook-form";
 import { getAuth, signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged, createUserWithEmailAndPassword, updateProfile, signInWithEmailAndPassword } from "firebase/auth";
 import initFirebase from './../firebase/firebase.init';
 
@@ -10,24 +9,19 @@ const useFirebase = () => {
     // firebase info
     const [user, setUser] = useState({});
     const [error, setError] = useState("");
+    const [isLoading, setIsLoading] = useState(true);
     const [name, setName] = useState("");
     const [password, setPassword] = useState("");
     const [email, setEmail] = useState("");
     const [photo, setPhoto] = useState("");
- console.log(name, email, password);
 
     const auth = getAuth();
 
     //sign in google
     const googleSignIn = () => {
+        setIsLoading(true);
         const googleProvider = new GoogleAuthProvider();
-        signInWithPopup(auth, googleProvider)
-            .then((result) => {
-                setUser(result.user)
-            }).catch((error) => {
-                setError(error.message);
-            });
-
+        return signInWithPopup(auth, googleProvider);
     }
 
     const updateUserProfile = () => {
@@ -43,6 +37,9 @@ const useFirebase = () => {
 
     // sign up
     const registerUser = () => {
+        if (name.length === 0 || email.length === 0 || password.length === 0) {
+            alert("please fill these input field")
+        }
         createUserWithEmailAndPassword(auth, email, password)
             .then((result) => {
                 updateUserProfile();
@@ -54,23 +51,26 @@ const useFirebase = () => {
 
     //login 
     const logIn = () => {
-        signInWithEmailAndPassword(auth, email, password)
-            .then((result) => {
-                setUser(result.user);
-            
-            }).catch((error) => {
-                setError(error.message);
-            });
+        setIsLoading(true);
+        if (email.length === 0 && password.length === 0) {
+            alert("please fill these input field")
+        }
+        return signInWithEmailAndPassword(auth, email, password);
     }
 
     // logout
     const logOut = () => {
+        setIsLoading(true);
         signOut(auth)
             .then(() => {
                 setUser({});
             }).catch((error) => {
                 setError(error.message);
-            });
+            })
+            .finally(() => {
+                setIsLoading(false);
+            }
+            )
     }
 
     //user is login or logout ? this function will observe the user state
@@ -81,12 +81,12 @@ const useFirebase = () => {
             } else {
                 setUser({});
             }
+            setIsLoading(false);
         })
     }, [])
 
     return {
-     setName, setError, error, setPassword, setEmail, logIn, logOut, registerUser, googleSignIn, setPhoto, user
-
+        setName, setError, error, setPassword, setEmail, logIn, logOut, registerUser, googleSignIn, setPhoto, user, setUser, setIsLoading, isLoading
     }
 }
 

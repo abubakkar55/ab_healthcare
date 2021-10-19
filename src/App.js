@@ -13,6 +13,7 @@ import Header from './components/Header/Header';
 import Doctors from './Pages/Doctors';
 import Signup from './components/Signup/Signup';
 import Login from './components/Signin/Signin';
+import PrivateRoute from './components/private/PrivateRoute';
 function App() {
   return (
     <div className="App">
@@ -22,6 +23,9 @@ function App() {
           <Header />
           <Switch>
             <Route exact path="/">
+              <Home />
+            </Route>
+            <Route exact path="/home">
               <Home />
             </Route>
 
@@ -49,9 +53,9 @@ function App() {
               <ProductDetails />
             </Route>
 
-            <Route path="/serviceDetails/:serviceId">
+            <PrivateRoute path="/serviceDetails/:serviceId">
               <ServicesDetails />
-            </Route>
+            </PrivateRoute>
 
             <Route path="*">
               <NotFound />

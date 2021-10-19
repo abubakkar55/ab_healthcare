@@ -4,18 +4,21 @@ import useCommonFirebase from '../../Hooks/useCommonFirebase';
 import { FcGoogle } from "react-icons/fc";
 
 const Signup = () => {
-    const { firebaseContext: { setName, setEmail, setPassword, registerUser, googleSignIn, setPhoto } } = useCommonFirebase();
+    const { firebaseContext: { setName, setEmail, setPassword, registerUser, googleSignIn, setPhoto, error } } = useCommonFirebase();
     return (
-        <div className="flex items-center justify-center my-12">
 
+        <div className="flex items-center justify-center my-12">
             <div className="bg-white   rounded-md overflow-hidden shadow-xl">
                 <h3 className="text-center text-blue-500 text-2xl mt-8 font-semibold">SIGN UP </h3>
                 <div>
                     <div className="p-8">
-                        <input onBlur={(e) => setName(e.target.value)} className="border-2 rounded-full block w-full px-4 py-3 mb-3 outline-none" type="text" placeholder="Your Name" />
-                        <input onBlur={(e) => setEmail(e.target.value)} className="border-2 rounded-full block w-full px-4 py-3 my-4 outline-none" type="email" placeholder="Your Email" />
-                        <input onBlur={(e) => setPassword(e.target.value)} className="border-2 rounded-full block w-full px-4 py-3 my-3 outline-none" type="password" placeholder="Your password" />
-                        <input onBlur={(e) => setPhoto(e.target.value)} className="border-2 rounded-full block w-full px-4 py-3 my-3 outline-none" type="url" placeholder="Your img url" />
+                        <input onBlur={(e) => setName(e.target.value)} className="border-2 rounded-full block w-full px-4 py-3 mb-3 outline-none" type="text" placeholder="Your Name" required />
+                        <input onBlur={(e) => setEmail(e.target.value)} className="border-2 rounded-full block w-full px-4 py-3 my-4 outline-none" type="email" placeholder="Your Email" required />
+                        <input onBlur={(e) => setPassword(e.target.value)} className="border-2 rounded-full block w-full px-4 py-3 my-3 outline-none" type="password" placeholder="Your password" required />
+                        <input onBlur={(e) => setPhoto(e.target.value)} className="border-2 rounded-full block w-full px-4 py-3 my-3 outline-none" type="url" placeholder="Your img url" required />
+                        {
+                            error ? <p className="text-red-500">{error} </p> : ""
+                        }
                         <div className="my-4">
                             <input className="w-7 h-4" type="checkbox" name="" id="terms" />
                             <label htmlFor="terms">Accepts The <span className="text-blue-500">Terms & Condition </span> </label>
