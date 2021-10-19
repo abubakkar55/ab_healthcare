@@ -7,13 +7,13 @@ import Home from './Pages/Home';
 import Shop from './Pages/Shop';
 import ProductDetails from './Pages/ProductDetails';
 import ServicesDetails from './Pages/ServicesDetails';
-import NotFound from './Pages/NotFound';
 import Footer from './components/Header/Footer';
 import Header from './components/Header/Header';
-import Doctors from './Pages/Doctors';
 import Signup from './components/Signup/Signup';
 import Login from './components/Signin/Signin';
 import PrivateRoute from './components/private/PrivateRoute';
+import OrderReview from './Pages/OrderReview';
+import NotFound from './components/NotFound/NotFound';
 function App() {
   return (
     <div className="App">
@@ -37,8 +37,8 @@ function App() {
               <Shop />
             </Route>
 
-            <Route path="/doctors">
-              <Doctors />
+            <Route path="/orderReview">
+              <OrderReview />
             </Route>
 
             <Route path="/signup">
@@ -49,9 +49,9 @@ function App() {
               <Login />
             </Route>
 
-            <Route path="/productDetails/:pdId">
+            <PrivateRoute path="/product_details/:pdId">
               <ProductDetails />
-            </Route>
+            </PrivateRoute>
 
             <PrivateRoute path="/serviceDetails/:serviceId">
               <ServicesDetails />
