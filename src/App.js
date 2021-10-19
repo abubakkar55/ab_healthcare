@@ -11,6 +11,8 @@ import NotFound from './Pages/NotFound';
 import Footer from './components/Header/Footer';
 import Header from './components/Header/Header';
 import Doctors from './Pages/Doctors';
+import Signup from './components/Signup/Signup';
+import Login from './components/Signin/Signin';
 function App() {
   return (
     <div className="App">
@@ -19,27 +21,43 @@ function App() {
         <Router>
           <Header />
           <Switch>
+            
             <Route exact path="/">
-            <Home/>
-             </Route>
+              <Home />
+            </Route>
+            
             <Route path="/services">
-            <Services/>
-             </Route>
+              <Services />
+            </Route>
+            
             <Route path="/shop">
-            <Shop/>
-             </Route>
+              <Shop />
+            </Route>
+            
             <Route path="/doctors">
-            <Doctors/>
-             </Route>
+              <Doctors />
+            </Route>
+
+            <Route path="/signup">
+              <Signup />
+            </Route>
+            
+            <Route path="/login">
+              <Login />
+            </Route>
+
             <Route path="/productDetails/:pdId">
               <ProductDetails />
             </Route>
-            <Route path="/serviceDetails/:id">
+            
+            <Route path="/serviceDetails/:serviceId">
               <ServicesDetails />
             </Route>
+            
             <Route path="*">
-            <NotFound/>
-             </Route>
+              <NotFound />
+            </Route>
+          
           </Switch>
           <Footer />
         </Router>

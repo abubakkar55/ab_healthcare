@@ -1,8 +1,12 @@
-import React, { useState } from 'react'
+import { useState } from 'react';
+import ServiceData from "../Data/ServicesData";
 
 const useCommon = () => {
-    const [data, setData] = useState(false);
-    return { data, setData };
+
+    const [serviceData, setServiceData] = useState(ServiceData);
+   
+
+    return { serviceData,  };
 }
 
 export default useCommon;
