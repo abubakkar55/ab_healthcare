@@ -14,6 +14,7 @@ import Login from './components/Signin/Signin';
 import PrivateRoute from './components/private/PrivateRoute';
 import OrderReview from './Pages/OrderReview';
 import NotFound from './components/NotFound/NotFound';
+import CheckOut from './Pages/CheckOut';
 function App() {
   return (
     <div className="App">
@@ -36,6 +37,10 @@ function App() {
             <Route path="/shop">
               <Shop />
             </Route>
+
+            <PrivateRoute path="/checkout">
+              <CheckOut />
+            </PrivateRoute>
 
             <Route path="/orderReview">
               <OrderReview />

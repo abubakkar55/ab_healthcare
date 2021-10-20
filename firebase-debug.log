@@ -48,3 +48,28 @@ Before we get started, keep in mind:
 [info] https://github.com/login/oauth/authorize?client_id=89cf50f02ac6aaed3484&state=181460268&redirect_uri=http%3A%2F%2Flocalhost%3A9005&scope=read%3Auser%20repo%20public_repo
 [info] 
 [info] Waiting for authentication...
+[debug] [2021-10-19T17:33:13.015Z] ----------------------------------------------------------------------
+[debug] [2021-10-19T17:33:13.017Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\User\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2021-10-19T17:33:13.018Z] CLI Version:   9.20.0
+[debug] [2021-10-19T17:33:13.018Z] Platform:      win32
+[debug] [2021-10-19T17:33:13.018Z] Node Version:  v15.5.0
+[debug] [2021-10-19T17:33:13.336Z] Time:          Tue Oct 19 2021 23:33:13 GMT+0600 (Bangladesh Standard Time)
+[debug] [2021-10-19T17:33:13.336Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2021-10-19T17:33:13.395Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2021-10-19T17:33:13.395Z] > authorizing via signed-in user (siddik.prgmr@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Web Development Learning\Milestone-10-react-authentication\healthcare-assignment
+
+Before we get started, keep in mind:
+
+  * You are currently outside your home directory
+

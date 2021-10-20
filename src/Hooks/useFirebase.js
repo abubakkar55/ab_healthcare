@@ -40,13 +40,7 @@ const useFirebase = () => {
         if (name.length === 0 || email.length === 0 || password.length === 0) {
             alert("please fill these input field")
         }
-        createUserWithEmailAndPassword(auth, email, password)
-            .then((result) => {
-                updateUserProfile();
-                setUser(result.user);
-            }).catch((error) => {
-                setError(error.message);
-            });
+        return createUserWithEmailAndPassword(auth, email, password);
     }
 
     //login 
@@ -86,7 +80,7 @@ const useFirebase = () => {
     }, [])
 
     return {
-        setName, setError, error, setPassword, setEmail, logIn, logOut, registerUser, googleSignIn, setPhoto, user, setUser, setIsLoading, isLoading
+        setName, setError, error, setPassword, setEmail, logIn, logOut, registerUser, googleSignIn, setPhoto, user, setUser, setIsLoading, isLoading, updateUserProfile
     }
 }
 

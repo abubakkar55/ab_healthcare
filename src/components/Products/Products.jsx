@@ -8,7 +8,7 @@ const Products = () => {
     const { commonContext: { handleStoredProduct} } = useCommonFirebase();
     return (
         <div className="px-6 md:px-20 my-10">
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold pt-7 md:pt-16 text-center">Our Featured Products </h2>
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold py-7 md:py-16 text-center">Our Featured Products </h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-7">
 
                 {
@@ -20,7 +20,7 @@ const Products = () => {
                                     <img className="w-44 h-44" src={img} alt="" />
                                 </div>
                                 <div className="icons flex items-center justify-center">
-                                    <ul className="flex items-center gap-4 absolute inset-y-0  m-auto ">
+                                    <ul className="flex items-center gap-4 absolute inset-y-0  m-auto">
                                         <li className="cart">
                                             <button
                                                 onClick={() => handleStoredProduct(pd)}

@@ -9,7 +9,8 @@ const useCommon = () => {
     const handleStoredProduct = (pd) => {
         const newArray = [...clickedPd, pd];
         setClickedPd(newArray);
-        //const uniquePd = clickedPd.map((pd) => pd)
+        const uniquePd = clickedPd.map((pd) => pd);
+        console.log(uniquePd);
     }
 
     return { serviceData, clickedPd, handleStoredProduct };

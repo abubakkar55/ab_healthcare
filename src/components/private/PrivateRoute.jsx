@@ -6,8 +6,8 @@ const PrivateRoute = ({ children, ...rest }) => {
     const { firebaseContext: { user, isLoading } } = useCommonFirebase();
 
     if (isLoading) {
-        return <div>
-            <img src="https://cdn.dribbble.com/users/5484/screenshots/2145786/for_dribbble.gif" alt="loading-img" />
+        return <div className="h-screen flex items-center justify-center">
+            <img className="w-96" src="https://cdn.dribbble.com/users/5484/screenshots/2145786/for_dribbble.gif" alt="loading-img" />
         </div>
     }
 
