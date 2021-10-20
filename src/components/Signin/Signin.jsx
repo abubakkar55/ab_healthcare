@@ -38,7 +38,7 @@ const Login = () => {
     }
 
     return (
-        <div className="flex items-center justify-center my-12">
+        <div className="flex items-center justify-center my-12 mx-5">
             <div className="bg-white rounded-md overflow-hidden shadow-xl">
                 <h3 className="text-center text-blue-500 text-2xl mt-8 font-semibold">SIGN IN </h3>
                 <div>

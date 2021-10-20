@@ -15,10 +15,10 @@ const ServicesDetails = () => {
                 clickedItemData?.map((item) => {
                     const { id, name, img, des } = item || {};
                     return (
-                        <div key={id} className="flex items-center">
-                            <div className="w-1/2">
-                                <h2 className="text-4xl font-bold mb-3">{name} </h2>
-                                <p className="text-gray-500 mr-32 mb-5">{des} </p>
+                        <div key={id} className="flex flex-col md:flex-row items-center">
+                            <div className="p-7 md:p-0 md:w-1/2">
+                                <h2 className="text-xl md:text-4xl font-bold mb-3">{name} </h2>
+                                <p className="text-gray-500 md:mr-32 mb-5">{des} </p>
                                 <button>
                                     <NavLink
                                         to="/appointment"
@@ -29,7 +29,7 @@ const ServicesDetails = () => {
                                     </NavLink>
                                 </button>
                             </div>
-                            <div className="w-1/2 p-4 shadow-md rounded-lg">
+                            <div className="md:w-1/2 p-4 shadow-md rounded-lg">
                                 <img className="rounded-lg h-96 w-full" src={img} alt={name} />
                             </div>
                         </div>

@@ -5,7 +5,7 @@ import useCommonFirebase from './../../Hooks/useCommonFirebase';
 
 const Header = () => {
     const { firebaseContext: { user, logOut } } = useCommonFirebase();
-    const { commonContext: {  clickedPd } } = useCommonFirebase();
+    const { commonContext: { clickedPd } } = useCommonFirebase();
     return (
         <div className="shadow-md">
             <div className="my-container flex flex-col md:flex-row items-center md:justify-between px-4 h-20 py-2 ">
@@ -23,9 +23,21 @@ const Header = () => {
                         <li className="hover:text-green-500 text-sm md:text-base   mr-2 md:mr-4">
                             <NavLink to="/shop"> Shop </NavLink>
                         </li>
-                        <li className="text-sm md:text-base  hover:text-green-500">
+                        <li className="text-sm md:text-base   mr-2 md:mr-4  hover:text-green-500">
                             <NavLink to="/orderReview"> Order Review  </NavLink>
                         </li>
+                        <div className="block md:hidden text-sm md:text-base ">
+                            {
+                                user?.email ?
+                                    <button onClick={logOut}> <MdLogout className="h-7 w-7" /> </button>
+                                    :
+                                    <li className="text-sm md:text-base  hover:text-green-500">
+                                        <NavLink to="/login"> Login  </NavLink>
+                                    </li>
+
+                            }
+                        </div>
+
                     </ul>
                 </div>
                 <div className="hidden md:block">
